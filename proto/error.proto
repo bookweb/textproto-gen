@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "github.com/bookweb/textproto-gen/protopb;servicepb";
+
+message Error {
+    string service = 1;
+    int32 code = 2;
+    string message = 3;
+}

@@ -1,0 +1,872 @@
+proto_file:  {
+  name:  "error.proto"
+  package:  "service.v1"
+  message_type:  {
+    name:  "Error"
+    field:  {
+      name:  "service"
+      number:  1
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "service"
+    }
+    field:  {
+      name:  "code"
+      number:  2
+      label:  LABEL_OPTIONAL
+      type:  TYPE_INT32
+      json_name:  "code"
+    }
+    field:  {
+      name:  "message"
+      number:  3
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "message"
+    }
+  }
+}
+proto_file:  {
+  name:  "message.proto"
+  package:  "service.v1"
+  message_type:  {
+    name:  "CreateItemRequest"
+    field:  {
+      name:  "name"
+      number:  1
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "name"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+  }
+  message_type:  {
+    name:  "Item"
+    field:  {
+      name:  "id"
+      number:  1
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "id"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+        [google.api.field_info]:  {
+          format:  UUID4
+        }
+      }
+    }
+    field:  {
+      name:  "type"
+      number:  2
+      label:  LABEL_OPTIONAL
+      type:  TYPE_ENUM
+      type_name:  ".service.v1.ItemType"
+      json_name:  "type"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "name"
+      number:  3
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "name"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "created_at"
+      number:  4
+      label:  LABEL_OPTIONAL
+      type:  TYPE_MESSAGE
+      type_name:  ".google.protobuf.Timestamp"
+      json_name:  "createdAt"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "internal_field"
+      number:  5
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "internalField"
+      options:  {
+        [google.api.field_visibility]:  {
+          restriction:  "INTERNAL"
+        }
+      }
+    }
+    field:  {
+      name:  "map_with_string"
+      number:  6
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithStringEntry"
+      json_name:  "mapWithString"
+    }
+    field:  {
+      name:  "map_with_int32"
+      number:  7
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithInt32Entry"
+      json_name:  "mapWithInt32"
+    }
+    field:  {
+      name:  "map_with_int64"
+      number:  8
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithInt64Entry"
+      json_name:  "mapWithInt64"
+    }
+    field:  {
+      name:  "map_with_uint32"
+      number:  9
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithUint32Entry"
+      json_name:  "mapWithUint32"
+    }
+    field:  {
+      name:  "map_with_uint64"
+      number:  10
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithUint64Entry"
+      json_name:  "mapWithUint64"
+    }
+    field:  {
+      name:  "map_with_int32_key"
+      number:  11
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithInt32KeyEntry"
+      json_name:  "mapWithInt32Key"
+    }
+    field:  {
+      name:  "map_with_int64_key"
+      number:  12
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithInt64KeyEntry"
+      json_name:  "mapWithInt64Key"
+    }
+    field:  {
+      name:  "map_with_uint32_key"
+      number:  13
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithUint32KeyEntry"
+      json_name:  "mapWithUint32Key"
+    }
+    field:  {
+      name:  "map_with_uint64_key"
+      number:  14
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithUint64KeyEntry"
+      json_name:  "mapWithUint64Key"
+    }
+    field:  {
+      name:  "map_with_int32_value"
+      number:  15
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithInt32ValueEntry"
+      json_name:  "mapWithInt32Value"
+    }
+    field:  {
+      name:  "map_with_int64_value"
+      number:  16
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithInt64ValueEntry"
+      json_name:  "mapWithInt64Value"
+    }
+    field:  {
+      name:  "map_with_uint32_value"
+      number:  17
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithUint32ValueEntry"
+      json_name:  "mapWithUint32Value"
+    }
+    field:  {
+      name:  "map_with_uint64_value"
+      number:  18
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithUint64ValueEntry"
+      json_name:  "mapWithUint64Value"
+    }
+    field:  {
+      name:  "map_with_message_value"
+      number:  19
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item.MapWithMessageValueEntry"
+      json_name:  "mapWithMessageValue"
+    }
+    nested_type:  {
+      name:  "MapWithStringEntry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithInt32Entry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_INT32
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_INT32
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithInt64Entry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_INT64
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_INT64
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithUint32Entry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_UINT32
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_UINT32
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithUint64Entry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_UINT64
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_UINT64
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithInt32KeyEntry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_INT32
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithInt64KeyEntry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_INT64
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithUint32KeyEntry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_UINT32
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithUint64KeyEntry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_UINT64
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithInt32ValueEntry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_INT32
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithInt64ValueEntry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_INT64
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithUint32ValueEntry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_UINT32
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithUint64ValueEntry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_UINT64
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+    nested_type:  {
+      name:  "MapWithMessageValueEntry"
+      field:  {
+        name:  "key"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "key"
+      }
+      field:  {
+        name:  "value"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_MESSAGE
+        type_name:  ".service.v1.MapValue"
+        json_name:  "value"
+      }
+      options:  {
+        map_entry:  true
+      }
+    }
+  }
+  message_type:  {
+    name:  "GetItemsRequest"
+    field:  {
+      name:  "limit"
+      number:  1
+      label:  LABEL_OPTIONAL
+      type:  TYPE_INT32
+      json_name:  "limit"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "offset"
+      number:  2
+      label:  LABEL_OPTIONAL
+      type:  TYPE_INT32
+      json_name:  "offset"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "nested_type"
+      number:  3
+      label:  LABEL_OPTIONAL
+      type:  TYPE_ENUM
+      type_name:  ".service.v1.NestedEnum.ItemType"
+      json_name:  "nestedType"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+  }
+  message_type:  {
+    name:  "GetItemsResponse"
+    field:  {
+      name:  "items"
+      number:  1
+      label:  LABEL_REPEATED
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Item"
+      json_name:  "items"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "total_count"
+      number:  2
+      label:  LABEL_OPTIONAL
+      type:  TYPE_INT32
+      json_name:  "totalCount"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "nested_item"
+      number:  3
+      label:  LABEL_OPTIONAL
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.GetItemsResponse.NestedItem"
+      json_name:  "nestedItem"
+    }
+    field:  {
+      name:  "nested_type"
+      number:  4
+      label:  LABEL_OPTIONAL
+      type:  TYPE_ENUM
+      type_name:  ".service.v1.NestedEnum.ItemType"
+      json_name:  "nestedType"
+    }
+    field:  {
+      name:  "error"
+      number:  5
+      label:  LABEL_OPTIONAL
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.Error"
+      json_name:  "error"
+    }
+    nested_type:  {
+      name:  "NestedItem"
+      field:  {
+        name:  "id"
+        number:  1
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "id"
+        options:  {
+          [google.api.field_behavior]:  REQUIRED
+        }
+      }
+      field:  {
+        name:  "type"
+        number:  2
+        label:  LABEL_OPTIONAL
+        type:  TYPE_ENUM
+        type_name:  ".service.v1.ItemType"
+        json_name:  "type"
+        options:  {
+          [google.api.field_behavior]:  REQUIRED
+        }
+      }
+      field:  {
+        name:  "name"
+        number:  3
+        label:  LABEL_OPTIONAL
+        type:  TYPE_STRING
+        json_name:  "name"
+        options:  {
+          [google.api.field_behavior]:  REQUIRED
+        }
+      }
+      field:  {
+        name:  "created_at"
+        number:  4
+        label:  LABEL_OPTIONAL
+        type:  TYPE_MESSAGE
+        type_name:  ".google.protobuf.Timestamp"
+        json_name:  "createdAt"
+        options:  {
+          [google.api.field_behavior]:  REQUIRED
+        }
+      }
+      field:  {
+        name:  "nested_item"
+        number:  5
+        label:  LABEL_REPEATED
+        type:  TYPE_MESSAGE
+        type_name:  ".service.v1.GetItemsResponse.NestedItem"
+        json_name:  "nestedItem"
+      }
+    }
+  }
+  message_type:  {
+    name:  "GetItemRequest"
+    field:  {
+      name:  "id"
+      number:  1
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "id"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+        [google.api.field_info]:  {
+          format:  UUID4
+        }
+      }
+    }
+    field:  {
+      name:  "internal_message"
+      number:  2
+      label:  LABEL_OPTIONAL
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.InternalMessage"
+      json_name:  "internalMessage"
+    }
+  }
+  message_type:  {
+    name:  "UpdateItemRequest"
+    field:  {
+      name:  "id"
+      number:  1
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "id"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "type"
+      number:  2
+      label:  LABEL_OPTIONAL
+      type:  TYPE_ENUM
+      type_name:  ".service.v1.ItemType"
+      json_name:  "type"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "name"
+      number:  3
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "name"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+  }
+  message_type:  {
+    name:  "PatchItemRequest"
+    field:  {
+      name:  "id"
+      number:  1
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "id"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "type"
+      number:  2
+      label:  LABEL_OPTIONAL
+      type:  TYPE_ENUM
+      type_name:  ".service.v1.ItemType"
+      json_name:  "type"
+    }
+    field:  {
+      name:  "name"
+      number:  3
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "name"
+    }
+  }
+  message_type:  {
+    name:  "DeleteItemRequest"
+    field:  {
+      name:  "id"
+      number:  1
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "id"
+      options:  {
+        [google.api.field_behavior]:  REQUIRED
+      }
+    }
+    field:  {
+      name:  "internal_message"
+      number:  2
+      label:  LABEL_OPTIONAL
+      type:  TYPE_MESSAGE
+      type_name:  ".service.v1.InternalMessage"
+      json_name:  "internalMessage"
+    }
+  }
+  message_type:  {
+    name:  "NestedEnum"
+    enum_type:  {
+      name:  "ItemType"
+      value:  {
+        name:  "ITEM_TYPE_UNSPECIFIED"
+        number:  0
+      }
+      value:  {
+        name:  "ITEM_TYPE_BASIC"
+        number:  1
+      }
+    }
+  }
+  message_type:  {
+    name:  "InternalMessage"
+    field:  {
+      name:  "user_id"
+      number:  1
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "userId"
+    }
+    field:  {
+      name:  "scopes"
+      number:  2
+      label:  LABEL_REPEATED
+      type:  TYPE_STRING
+      json_name:  "scopes"
+    }
+    options:  {
+      [google.api.message_visibility]:  {
+        restriction:  "INTERNAL"
+      }
+    }
+  }
+  message_type:  {
+    name:  "MapValue"
+    field:  {
+      name:  "value"
+      number:  1
+      label:  LABEL_OPTIONAL
+      type:  TYPE_STRING
+      json_name:  "value"
+    }
+  }
+  message_type:  {
+    name:  "UnusedMessage"
+  }
+  enum_type:  {
+    name:  "ItemType"
+    value:  {
+      name:  "ITEM_TYPE_UNSPECIFIED"
+      number:  0
+    }
+    value:  {
+      name:  "ITEM_TYPE_BASIC"
+      number:  1
+    }
+  }
+}
+proto_file:  {
+  name:  "service.proto"
+  package:  "service.v1"
+  service:  {
+    name:  "Service"
+    method:  {
+      name:  "CreateItem"
+      input_type:  ".service.v1.CreateItemRequest"
+      output_type:  ".service.v1.Item"
+      options:  {
+        [google.api.http]:  {
+          post:  "/api/v1/items"
+          body:  "*"
+        }
+      }
+    }
+    method:  {
+      name:  "GetItems"
+      input_type:  ".service.v1.GetItemsRequest"
+      output_type:  ".service.v1.GetItemsResponse"
+      options:  {
+        [google.api.http]:  {
+          get:  "/api/v1/items"
+        }
+      }
+    }
+    method:  {
+      name:  "GetItem"
+      input_type:  ".service.v1.GetItemRequest"
+      output_type:  ".service.v1.Item"
+      options:  {
+        deprecated:  true
+        [google.api.http]:  {
+          get:  "/api/v1/items/{id}"
+        }
+      }
+    }
+    method:  {
+      name:  "UpdateItem"
+      input_type:  ".service.v1.UpdateItemRequest"
+      output_type:  ".service.v1.Item"
+      options:  {
+        [google.api.http]:  {
+          put:  "/api/v1/items/{id}"
+          body:  "*"
+        }
+      }
+    }
+    method:  {
+      name:  "PatchItem"
+      input_type:  ".service.v1.PatchItemRequest"
+      output_type:  ".service.v1.Item"
+      options:  {
+        [google.api.http]:  {
+          patch:  "/api/v1/items/{id}"
+          body:  "*"
+        }
+      }
+    }
+    method:  {
+      name:  "DeleteItem"
+      input_type:  ".service.v1.DeleteItemRequest"
+      output_type:  ".google.protobuf.Empty"
+      options:  {
+        [google.api.http]:  {
+          delete:  "/api/v1/items/{id}"
+          body:  "*"
+        }
+      }
+    }
+  }
+}

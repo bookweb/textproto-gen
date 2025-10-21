@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package service.v1;
+
+option go_package = "service/v1;service";
+
+message Error {
+    string service = 1;
+    int32 code = 2;
+    string message = 3;
+}
