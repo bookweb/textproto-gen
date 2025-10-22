@@ -42,16 +42,16 @@ func filterFileDescriptorProto(src *descriptorpb.FileDescriptorProto) *descripto
 	dst := &descriptorpb.FileDescriptorProto{
 		Name:             src.Name,
 		Package:          src.Package,
-		Dependency:       nil,
+		Dependency:       src.Dependency,
 		MessageType:      src.MessageType,
 		EnumType:         src.EnumType,
 		Service:          src.Service,
 		Extension:        src.Extension,
-		Options:          nil, // remove
-		SourceCodeInfo:   nil, // remove
-		Syntax:           nil, // remove
-		PublicDependency: nil, // remove
-		WeakDependency:   nil, // remove
+		Options:          src.Options, // remove
+		SourceCodeInfo:   nil,         // remove
+		Syntax:           nil,         // remove
+		PublicDependency: nil,         // remove
+		WeakDependency:   nil,         // remove
 	}
 	return dst
 }
