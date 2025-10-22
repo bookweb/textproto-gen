@@ -19,7 +19,7 @@ func Run() error {
 	standalone := flagSet.Bool("standalone", false, "Standalone mode")
 	title := flagSet.String("title", "", "Title")
 	description := flagSet.String("description", "", "Description")
-	filename := flagSet.String("filename", "openapi", "Filename")
+	filename := flagSet.String("filename", "testdata", "Filename")
 
 	if err := flagSet.Parse(os.Args[1:]); err != nil {
 		return errors.Wrap(err, "parse args")
