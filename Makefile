@@ -29,7 +29,7 @@ goreleaser-snapshot:
 	goreleaser release --snapshot --clean
 
 goreleaser-release:
-	goreleaser release
+	goreleaser release --clean
 
 gen-proto:
 	./third_party/protoc/bin/protoc \
