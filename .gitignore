@@ -3,3 +3,7 @@ cmd/protoc-gen-textproto/protoc-gen-textproto
 
 vendor/
 .VERSION
+
+export-env.sh
+# Added by goreleaser init:
+dist/

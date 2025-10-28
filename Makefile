@@ -1,19 +1,14 @@
-.PHONY: install-tools install-gotools build install
+.PHONY: install-tools build install
 install-tools:
-	go install github.com/autotag-dev/autotag@v1.4.1
-	go install github.com/bookweb/textproto-gen/cmd/protoc-gen-textproto@v0.0.0-20251021161649-c827e42fb7b1
-
-install-gotools:
-	go install github.com/go-delve/delve/cmd/dlv@v1.25.2
+	go install github.com/autotag-dev/autotag/autotag@latest
+	go install github.com/bookweb/textproto-gen/cmd/protoc-gen-textproto@latest
+	go install github.com/goreleaser/goreleaser/v2@latest
 
 build:
 	go build -o cmd/protoc-gen-textproto/protoc-gen-textproto cmd/protoc-gen-textproto/main.go
 
 install:
 	cd cmd/protoc-gen-textproto && go install
-
-tag-first:
-	git tag v0.0.1 -m'create project'
 
 tag:
 	autotag -b master > .VERSION
@@ -23,6 +18,18 @@ tag-dev:
 
 tag-stg:
 	autotag -p next -b release-next > .VERSION
+
+tag-first:
+	git tag v0.0.1 -m'create project'
+
+goreleaser-init:
+	goreleaser init
+
+goreleaser-snapshot:
+	goreleaser release --snapshot --clean
+
+goreleaser-release:
+	goreleaser release
 
 gen-proto:
 	./third_party/protoc/bin/protoc \
