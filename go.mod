@@ -1,6 +1,6 @@
 module github.com/bookweb/textproto-gen
 
-go 1.25.3
+go 1.24.2
 
 require (
 	github.com/go-faster/errors v0.7.1
