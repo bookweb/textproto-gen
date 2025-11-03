@@ -9,10 +9,16 @@ install-tools:
 	go install github.com/goreleaser/goreleaser/v2@latest
 
 build:
-	go build -ldflags "-X github.com/bookweb/structcopy-gen/config.Version=$(VERSION) -X github.com/bookweb/structcopy-gen/config.CommitHash=$(GIT_COMMIT) -X github.com/bookweb/structcopy-gen/config.BuildTime=${BUILD_TIME}" -o cmd/protoc-gen-textproto/protoc-gen-textproto cmd/protoc-gen-textproto/main.go
+	go build -ldflags "-X github.com/bookweb/structcopy-gen/config.Version=$(VERSION) \
+		-X github.com/bookweb/structcopy-gen/config.CommitHash=$(GIT_COMMIT) \
+		-X github.com/bookweb/structcopy-gen/config.BuildTime=${BUILD_TIME}" \
+		-o ./cmd/protoc-gen-textproto/protoc-gen-textproto ./cmd/protoc-gen-textproto/main.go
 
 install:
-	go install -ldflags "-X github.com/bookweb/structcopy-gen/config.Version=$(VERSION) -X github.com/bookweb/structcopy-gen/config.CommitHash=$(GIT_COMMIT) -X github.com/bookweb/structcopy-gen/config.BuildTime=${BUILD_TIME}" ./cmd/textproto-gen
+	go install -ldflags "-X github.com/bookweb/structcopy-gen/config.Version=$(VERSION) \
+		-X github.com/bookweb/structcopy-gen/config.CommitHash=$(GIT_COMMIT) \
+		-X github.com/bookweb/structcopy-gen/config.BuildTime=${BUILD_TIME}" \
+		./cmd/textproto-gen
 
 tag:
 	autotag -b master > .VERSION
