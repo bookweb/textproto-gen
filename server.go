@@ -3,8 +3,10 @@ package textprotogen
 import (
 	"flag"
 	"fmt"
+	"log/slog"
 	"os"
 
+	"github.com/bookweb/textproto-gen/config"
 	"github.com/bookweb/textproto-gen/internal/gen"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/types/pluginpb"
@@ -25,10 +27,12 @@ func Run() error {
 		return errors.Wrap(err, "parse args")
 	}
 
-	if *version {
-		fmt.Println("1.1.0")
-	} else if *standalone {
+	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
 
+	if *version {
+		fmt.Println(config.Version)
+	} else if *standalone {
+		// Do nothing
 	} else {
 		opts := protogen.Options{
 			ParamFunc: flagSet.Set,
@@ -41,6 +45,7 @@ func Run() error {
 				plugin.Files,
 				gen.WithTitle(*title),
 				gen.WithDescription(*description),
+				gen.WithLogger(logger),
 			)
 			if err != nil {
 				return err

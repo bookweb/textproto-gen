@@ -1,3 +1,7 @@
+VERSION := $(shell cat .VERSION)
+GIT_COMMIT := $(shell git rev-parse --short HEAD)
+BUILD_TIME := $(shell date -u +'%Y-%m-%dT%H:%M:%S%NZ')
+
 .PHONY: install-tools build install
 install-tools:
 	go install github.com/autotag-dev/autotag/autotag@latest
@@ -5,10 +9,10 @@ install-tools:
 	go install github.com/goreleaser/goreleaser/v2@latest
 
 build:
-	go build -o cmd/protoc-gen-textproto/protoc-gen-textproto cmd/protoc-gen-textproto/main.go
+	go build -ldflags "-X github.com/bookweb/structcopy-gen/config.Version=$(VERSION) -X github.com/bookweb/structcopy-gen/config.CommitHash=$(GIT_COMMIT) -X github.com/bookweb/structcopy-gen/config.BuildTime=${BUILD_TIME}" -o cmd/protoc-gen-textproto/protoc-gen-textproto cmd/protoc-gen-textproto/main.go
 
 install:
-	cd cmd/protoc-gen-textproto && go install
+	go install -ldflags "-X github.com/bookweb/structcopy-gen/config.Version=$(VERSION) -X github.com/bookweb/structcopy-gen/config.CommitHash=$(GIT_COMMIT) -X github.com/bookweb/structcopy-gen/config.BuildTime=${BUILD_TIME}" ./cmd/textproto-gen
 
 tag:
 	autotag -b master > .VERSION
@@ -22,13 +26,13 @@ tag-stg:
 tag-first:
 	git tag v0.0.1 -m'create project'
 
-goreleaser-init:
+release-init:
 	goreleaser init
 
-goreleaser-snapshot:
+release-snapshot:
 	goreleaser release --snapshot --clean
 
-goreleaser-release:
+release:
 	goreleaser release --clean
 
 gen-proto:

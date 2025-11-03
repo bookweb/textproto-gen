@@ -1,6 +1,9 @@
 package gen
 
 import (
+	"log/slog"
+	"os"
+
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/encoding/prototext"
 	"google.golang.org/protobuf/types/descriptorpb"
@@ -11,10 +14,17 @@ type Generator struct {
 	rawBytes    []byte
 	title       string
 	description string
+
+	logger *slog.Logger
 }
 
 func NewGenerator(files []*protogen.File, opts ...GeneratorOption) (*Generator, error) {
 	g := &Generator{}
+	g.initDefaults()
+
+	for _, opt := range opts {
+		opt(g)
+	}
 
 	for _, file := range files {
 		if !file.Generate {
@@ -31,6 +41,10 @@ func NewGenerator(files []*protogen.File, opts ...GeneratorOption) (*Generator, 
 	}
 
 	return g, nil
+}
+
+func (g *Generator) initDefaults() {
+	g.logger = slog.New(slog.NewJSONHandler(os.Stdout, nil))
 }
 
 // TextProto returns protobuf with textproto format data in bytes.

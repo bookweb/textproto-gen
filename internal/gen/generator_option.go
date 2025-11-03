@@ -1,5 +1,7 @@
 package gen
 
+import "log/slog"
+
 // GeneratorOption is option for Generator.
 type GeneratorOption func(g *Generator)
 
@@ -14,5 +16,12 @@ func WithTitle(title string) GeneratorOption {
 func WithDescription(description string) GeneratorOption {
 	return func(g *Generator) {
 		g.SetDescription(description)
+	}
+}
+
+// WithLogger sets logger.
+func WithLogger(logger *slog.Logger) GeneratorOption {
+	return func(g *Generator) {
+		g.logger = logger
 	}
 }
